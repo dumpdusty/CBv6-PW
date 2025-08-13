@@ -29,4 +29,15 @@ export class LandingPage extends BasePage {
 
         await expect(this.page.locator('.card-footer a')).toHaveAttribute('href', expect.stringContaining('user/login'))
     }
+
+    async verifyLinks() { 
+         await this.page.locator('a', { hasText: 'Login' }).click()
+        await expect(this.page.url()).toContain('user/login')
+        await expect(this.page.locator('.card-title')).toHaveText('Sign In')
+
+        await this.page.goBack()
+        await this.page.locator('a', { hasText: 'Get started' }).click()
+        await expect(this.page.url()).toContain('user/register')
+        await expect(this.page.locator('.card-title')).toHaveText('Sign Up')
+    }
 }
