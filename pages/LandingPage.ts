@@ -31,7 +31,7 @@ export class LandingPage extends BasePage {
     }
 
     async verifyLinks() { 
-         await this.page.locator('a', { hasText: 'Login' }).click()
+        await this.page.locator('a', { hasText: 'Login' }).click()
         await expect(this.page.url()).toContain('user/login')
         await expect(this.page.locator('.card-title')).toHaveText('Sign In')
 
