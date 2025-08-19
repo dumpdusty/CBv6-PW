@@ -63,28 +63,30 @@ test.describe('AUTHORIZATION NEGATIVE', () => {
     test('verify user can\'t log in with empty data', async ({ page }) => {
 
         await expect(page.locator('[name="email"]')).toHaveAttribute('required')
+        await expect(page.locator('[name="password"]')).toHaveAttribute('required')
 
         await page.locator('[name="email"]').fill("")
         await page.locator('[name="password"]').fill("")
         await page.getByRole('button').click()
 
+        await expect(page.getByRole('button')).toBeVisible()
         await expect(page.url()).toContain('login')
-        await expect(page.getByRole('button')).toBeVisible 
+        
     })
 
-    test('empty fields validation', async ({ page }) => { 
+    test('login form empty fields validation', async ({ page }) => {
         await page.getByRole('button').click()
 
-        // verifying the exact text of a validation error message is not advisable, as different browsers may display varying message content.
         const emailValidationMessage = await page.locator('[name="email"]').evaluate((el: HTMLInputElement) => el.validationMessage);
-        await expect(emailValidationMessage.length).toBeGreaterThan(0)
+
+        await expect(emailValidationMessage.length).toBeGreaterThan(0);
 
         await page.locator('[name="email"]').fill(process.env.EMAIL)
         await page.getByRole('button').click()
 
-         const passwordValidationMessage = await page.locator('[name="password"]').evaluate((el: HTMLInputElement) => el.validationMessage);
-        await expect(passwordValidationMessage.length).toBeGreaterThan(0)
+         const passwordValidationMessage = await page.locator('[name="email"]').evaluate((el: HTMLInputElement) => el.validationMessage);
 
+        await expect(passwordValidationMessage.length).toBeGreaterThan(0);
     })
 
 
