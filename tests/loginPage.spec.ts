@@ -84,7 +84,7 @@ test.describe('AUTHORIZATION NEGATIVE', () => {
         await page.locator('[name="email"]').fill(process.env.EMAIL)
         await page.getByRole('button').click()
 
-         const passwordValidationMessage = await page.locator('[name="email"]').evaluate((el: HTMLInputElement) => el.validationMessage);
+        const passwordValidationMessage = await page.locator('[name="password"]').evaluate((el: HTMLInputElement) => el.validationMessage);
 
         await expect(passwordValidationMessage.length).toBeGreaterThan(0);
     })

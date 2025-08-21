@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test'
 
-export class BasePage { 
+export class ExternalPage { 
 
     readonly page: Page
 
