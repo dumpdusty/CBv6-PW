@@ -1,7 +1,7 @@
 import { Page, expect } from '@playwright/test'
-import { BasePage } from './page'
+import { ExternalPage } from './ExternalPage'
 
-export class LandingPage extends BasePage { 
+export class LandingPage extends ExternalPage { 
 
     constructor(page: Page) { 
         super(page)
