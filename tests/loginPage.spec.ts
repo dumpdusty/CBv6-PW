@@ -8,7 +8,6 @@ test.describe('AUTHORIZATION GENERAL', () => {
     test.beforeEach(async ({ page }) => { 
         loginPage = new LoginPage(page)
         loginPage.visit('v6/user/login')
-        page.waitForLoadState('networkidle')
     })
 
     test('verify login form elements', async ({ page }) => {

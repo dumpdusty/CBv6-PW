@@ -10,7 +10,10 @@ export class ExternalPage {
 
 
     async visit(endpoint: string) { 
-        await this.page.goto(endpoint)
+        await this.page.goto(endpoint, {
+            timeout: 30000,
+            waitUntil: 'domcontentloaded',
+        })
     }
 
     async verifyHeader(text: string) { 

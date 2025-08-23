@@ -30,7 +30,6 @@ test.describe('REGISTRATION POSITIVE', () => {
     test('verify user can register with valid data', async ({ page }) => {
 
         const newEmail = `pirate_${Date.now()}@pirate.com`
-        console.log(newEmail)
         
         await registrationPage.companyNameField.fill('Black Pearl')
         await registrationPage.firstNameField.fill('Jack')
