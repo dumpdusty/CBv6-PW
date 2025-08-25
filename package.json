@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "ci-test": "npx playwright test landingPage.spec.ts"
+    "ci-test": "npx playwright test --project=ci"
   },
   "keywords": [],
   "author": "",

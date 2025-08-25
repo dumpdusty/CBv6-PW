@@ -38,6 +38,11 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+    {
+      name: 'ci',
+      use: { ...devices['Desktop Chrome'] },
+      testIgnore: ['tests/registrationPage.spec.ts']
+    }
 
     // {
     //   name: 'firefox',
