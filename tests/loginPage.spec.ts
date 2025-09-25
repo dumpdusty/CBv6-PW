@@ -60,21 +60,10 @@ test.describe('AUTHORIZATION NEGATIVE', () => {
         await expect(page.locator('.ant-notification-notice-message')).toHaveText('Auth failed')
     })
 
-    test('verify user can\'t log in with empty data', async ({ page }) => {
-
+    test('login form empty fields validation', async ({ page }) => {
         await expect(page.locator('[name="email"]')).toHaveAttribute('required')
         await expect(page.locator('[name="password"]')).toHaveAttribute('required')
 
-        await page.locator('[name="email"]').fill("")
-        await page.locator('[name="password"]').fill("")
-        await page.getByRole('button').click()
-
-        await expect(page.getByRole('button')).toBeVisible()
-        await expect(page.url()).toContain('login')
-        
-    })
-
-    test('login form empty fields validation', async ({ page }) => {
         await page.getByRole('button').click()
 
         const emailValidationMessage = await page.locator('[name="email"]').evaluate((el: HTMLInputElement) => el.validationMessage);
