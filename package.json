@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
-    "ci-test": "npx playwright test --project=ci"
+    "test": "playwright test",
+    "ui": "playwright test --ui",
+    "single-ui": "playwright test landingPage.spec.ts --ui",
+    "regression": "playwright test loginPage.spec.ts registrationPage.spec.ts",
+    "ci-test": "playwright test --project=ci"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.54.2",
+    "@playwright/test": "^1.59.1",
     "@types/dotenv": "^8.2.3",
     "@types/node": "^24.2.1"
   },
